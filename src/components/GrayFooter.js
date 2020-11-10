@@ -15,8 +15,8 @@ const BottomImageContainer = {
     position: 'absolute',
     left: 0,
     minHeight: '25%',
-    //minWidth:'100%',
-    //width: '100%',
+    minWidth:'100%',
+    width: '100%',
     backgroundColor: '#B0B4C3',
     zIndex:0
 
