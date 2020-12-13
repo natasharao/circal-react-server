@@ -11,7 +11,7 @@ import {Features} from './components/Features.js';
 import {NavigationBar} from './components/NavigationBar.js';
 import { BrowserRouter, Router, Route, Switch} from 'react-router-dom';
 import {Password} from './components/Password.js';
-import {SignIn} from './components/SignIn.js';
+import SignIn from './components/SignIn.js';
 import CalendarPicker from './components/User/CalendarPicker';
 import UserDashboard from './components/User/Home/UserDashboard.js';
 import SignUpNext from './components/SignUpFlow/SignUpNext';

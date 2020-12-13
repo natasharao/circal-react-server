@@ -8,8 +8,14 @@ import {Link} from 'react-router-dom';
 import '.././App.css';
 import '.././css/signin.css';
 
-export class SignIn extends React.Component {
-    render() {
+function SignIn() {
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
       return (
         <Container className = "font" fluid>
             <SignInNav/>
@@ -19,7 +25,8 @@ export class SignIn extends React.Component {
                                 <h1 className = "mx-auto sign-in-header">Sign In</h1>
                             </Row>
                             <Row>
-                                <Button className = "mx-auto" variant = "light">Sign in with Google</Button>
+                                <div class="g-signin2 mx-auto" data-onsuccess="onSignIn" ></div>
+                                {/* <Button className = "mx-auto" variant = "light">Sign in with Google</Button> */}
                             </Row>
                             <Row style = {{paddingTop: '1rem', color: 'gray'}}> 
                             <p className = "mx-auto">or use your account</p>
@@ -63,6 +70,5 @@ export class SignIn extends React.Component {
                 </Container>
             </Container>
       );
-    }
 }
 export default SignIn;
