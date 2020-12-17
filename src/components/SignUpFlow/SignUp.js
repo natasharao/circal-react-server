@@ -42,7 +42,7 @@ export class SignUp extends React.Component {
                             <p className = "mx-auto white">Already have an account?</p>
                         </Row>
                         <Row>
-                            <Button href="/signup" variant = "outline-light" size = "lg" className = "btn-rounded mx-auto btn-sign-in">sign in</Button>
+                            <Button href="/signin" variant = "outline-light" size = "lg" className = "btn-rounded mx-auto btn-sign-in">sign in</Button>
                         </Row>
                     </Table>
                 </Container>
@@ -60,14 +60,6 @@ export class SignUp extends React.Component {
                             </Row>
                             <Col>
                                 <Form className = "mx-auto w-75">
-                                    {/* <Form.Row>
-                                        <Col>
-                                            <Form.Control type = "first name" placeholder = "First Name"  onChange = {inputChange('firstName')} value = {values.firstName}/>
-                                        </Col>
-                                        <Col>
-                                            <Form.Control type = "last name"  placeholder = "Last Name" onChange = {inputChange('lastName')} value = {values.lastName}/>
-                                        </Col>
-                                    </Form.Row> */}
                                     <Form.Row className = "pt-3">
                                         <Col>
                                             <Form.Control type = "workEmail" className = "input-borders" placeholder = "Work Email" onChange = {inputChange('email')} value = {values.email}/>
