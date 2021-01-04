@@ -9,13 +9,13 @@ export class SignUpNext extends React.Component {
     state = {
         step: 1,
         firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
         pricePlan: '',
         company: '',
         timeZone: '',
-        lastName: '',
-        email: '',
         company: '',
-        password: '',
         role: ''
     };
 

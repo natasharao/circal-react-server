@@ -7,17 +7,23 @@ import {SignInNav} from './SignInNav.js';
 import '.././App.css';
 import '.././css/signin.css';
 import { Redirect } from 'react-router-dom';
+import {GoogleLogin} from 'react-google-login';
+import {useGoogleLogin} from 'react-google-login';
+import { useHistory } from 'react-router-dom';
 
 function SignIn() {
-    function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    }
+    // function onSignIn(googleUser) {
+    //     var profile = googleUser.getBasicProfile();
+    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //     console.log('Name: ' + profile.getName());
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    //     var element = document.getElementById("someID");
+    //     element.textContent =  "<p style ={{color: 'white'}}>hello</p>";
+    // }
 
     const [validated, setValidated] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -26,14 +32,35 @@ function SignIn() {
         event.stopPropagation();
         }
         setValidated(true);
+        history.push('/user_dashboard');
     };
 
-    const redirectLogin = () =>  {
-        console.log(validated);
-        if (validated == true) {
-            return(<Redirect to="/user_dashboard"/>);
-        }
+    // const redirectLogin = () =>  {
+    //     console.log(validated);
+    //     if (validated == true) {
+    //         return(<Redirect to="/user_dashboard"/>);
+    //     }
+    // }
+
+    const clientID = '48486634238-ad8tcvmn9b5eheiqtbbgiv8srsekm9he.apps.googleusercontent.com';
+    const onSuccess = (res) =>  {
+        console.log('Login Successful: user - ', res.profileObj);
+        // history.push('/user_dashboard');
     }
+
+    const onFailure = (res) => {
+        console.log('Login Failed: res: ', res);
+    }
+
+    const { signIn } = useGoogleLogin ({
+        onSuccess,
+        onFailure,
+        clientID,
+        isSignedIn: true,
+        accessType: 'offline'
+        // responseType: 'code',
+        // prompt: 'consent'
+    })
 
       return (
         <Container className = "font" fluid>
@@ -44,7 +71,10 @@ function SignIn() {
                                 <h1 className = "mx-auto sign-in-header">Sign In</h1>
                             </Row>
                             <Row>
-                                <div class="g-signin2 mx-auto" data-onsuccess="onSignIn" ></div>
+                                <GoogleLogin clientId = {clientID} buttonText = "Sign in with Google"
+                                className = "mx-auto justify-content-center btn-rounded shadow-sm border-light w-25"
+                                onSuccess = {onSuccess} onFailure = {onFailure}
+                                cookiePolicy = {'single_host_origin'} isSignedIn = {true}/>
                             </Row>
                             <Row style = {{paddingTop: '1rem', color: 'gray'}}> 
                             <p className = "mx-auto">or use your account</p>
@@ -60,7 +90,6 @@ function SignIn() {
                                     <Form.Row className = "padding">
                                         <Button variant="primary" style = {{border: 'hidden', width: '40%', fontWeight: 'bold', fontSize: '1.2rem'}}
                                          size = "lg"  type="submit" className = "btn-rounded mx-auto">sign in</Button>
-                                        {redirectLogin()}
                                     </Form.Row>
                                     <Nav className="justify-content-center" activeKey="/home">
                                         <Nav.Item>
@@ -75,7 +104,7 @@ function SignIn() {
                 <Container className = "sign-in-bg animate__animated animate__slideInLeft" fluid>
                     <Table className = "animate__animated animate__slideInRight">
                         <Row>
-                            <h1 className = "title header mx-auto welcome-header">Hello, Friend!</h1>
+                            <h1 className = "title header mx-auto welcome-header">Welcome back!</h1>
                         </Row>
                         <Row>
                             <p className = "mx-auto white">Don't have an account?</p>

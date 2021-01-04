@@ -12,7 +12,7 @@ import SignIn from './components/SignIn.js';
 import UserDashboard from './components/User/Home/UserDashboard.js';
 import SignUpNext from './components/SignUpFlow/SignUpNext';
 import TeamDashboard from './components/User/Team/TeamDashboard.js'
-import AgendaDashboard from './components/User/AgendaDashboard';
+import AgendaDashboard from './components/User/Agenda/AgendaDashboard';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import CreateMeetingForm from './components/User/CreateMeetingForm';
 import CalendarDashboard from './components/User/Calendar/CalendarDashboard';

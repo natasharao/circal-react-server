@@ -43,6 +43,11 @@ $embed-responsive-aspect-ratios: (
     color: white !important;
 } 
 
+.form-control:focus{
+    box-shadow: 0px 0px #B0B4C3 !important;
+    border-color: #B0B4C3 !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
 
 $theme-colors: (
     "primary":    $primary,
