@@ -4,6 +4,7 @@ import SignUp from './SignUp';
 import PersonalInfo from './PersonalInfo';
 import BillingInfo from './BillingInfo';
 import ChooseFlow from './ChooseFlow';
+import TeamInfo from './TeamInfo';
 
 export class SignUpNext extends React.Component {
     state = {
@@ -41,15 +42,15 @@ export class SignUpNext extends React.Component {
         const values = {firstName, lastName, accessCode, plan, company, timeZone, role, email, password}
 
         switch(step) {
-            case 1:
+            case 2:
                 return(
                     <SignUp nextStep = {this.nextStep} inputChange = {this.inputChange} values = {values}/>
                 );
-            case 2:
+            case 1:
                 console.log("plan");
                 console.log(plan);
                     return(
-                        <ChooseFlow nextStep = {this.nextStep} prevStep = {this.prevStep}  inputChange = {this.inputChange} values = {values}/>
+                        <TeamInfo nextStep = {this.nextStep} prevStep = {this.prevStep}  inputChange = {this.inputChange} values = {values}/>
                     );
             case 3:
                 if (company && !accessCode && step === 3) {

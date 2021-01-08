@@ -17,9 +17,41 @@ $link-color: $primary !default;
 $nav-pills-link-active-color: white;
 $nav-pills-link-active-bg: $primary;
 
+.btn-primary,
+.badge-primary,
+.alert-primary {
+    background-image: linear-gradient(108.62deg, #FFD3A5 -37.29%, #FD6585 124.2%) !important;
+    box-shadow: 0px 0px 10px rgba(253, 101, 133, 0.32) !important;
+    border: none !important;
+}
+
+.btn-secondary,
+.badge-secondary,
+.alert-secondary {
+    background-image: linear-gradient(138.23deg, #CE9FFC 0%, #7367F0 115.58%) !important;
+    box-shadow: 0px 0px 10px rgba(115, 103, 240, 0.31) !important;
+    border: none !important;
+}
+
+.btn-success,
+.badge-success,
+.alert-success {
+    background-image: linear-gradient(140.24deg, #90F7EC 0%, #32CCBC 132.86%) !important;
+    box-shadow: 0px 0px 10px rgba(50, 204, 188, 0.33) !important;
+    border: none !important;
+}
+
+.btn-warning,
+.badge-warning,
+.alert-warning {
+    background-image: linear-gradient(132.94deg, #FFE985 -22.75%, #FA742B 139.47%) !important;
+    box-shadow: 0px 0px 10px rgba(250, 116, 43, 0.32) !important;
+    border: none !important;
+}
+
 $embed-responsive-aspect-ratios: (
-(25, 5),
-(20, 5),
+  (25, 5),
+  (20, 5),
   (21 9),
   (16 9),
   (4 3),

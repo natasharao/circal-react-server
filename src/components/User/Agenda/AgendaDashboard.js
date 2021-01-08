@@ -26,36 +26,39 @@ export default class AgendaDashboard extends React.Component {
                     <Tabs defaultActiveKey="day1" id="uncontrolled-tab-example">
                         <Tab eventKey="day1" title="Day 1">
                             <Row xs={2} md={4} lg={4} className = "mx-auto">
-                                <Col style = {{width: '20%', paddingTop: '1.5rem', }}>
-                                    <h3 className = "mx-auto text-center w-100 rounded-lg pt-5" style = {{background: 'white', color: 'grey'}} as="h2">10:00am</h3>
-                                    <h6 className = "mx-auto text-center w-100 rounded-lg pt-1" style = {{background: 'white', color: 'pink'}} as="h2">10:00 - 11:30</h6>
+                                <Col className = "w-25" style = {{paddingTop: '1.5rem'}}>
+                                    <h3 className = "mx-auto text-center text-muted w-100 rounded-lg pt-5">10:00am</h3>
+                                    <h6 className = "mx-auto text-center text-primary w-100 rounded-lg pt-1">10:00 - 11:30</h6>
                                 </Col>
-                                <Col style = {{paddingTop: '2rem'}}>
+                                <Col className = "w-75" style = {{paddingTop: '2rem'}}>
                                     <AgendaCard title = "Product Launch" 
-                                    description = "Go over product launch and any bugs in the product."
-                                    meetingRoom = "Zoom"/>
+                                    description = "Go over product launch plan and discuss any bugs in the product."
+                                    meetingRoom = "Zoom"
+                                    idString = "1" />
                                 </Col>
                             </Row>
                             <Row xs={2} md={4} lg={4} className = "mx-auto">
-                                <Col style = {{width: '20%', paddingTop: '1.5rem', }}>
-                                    <h3 className = "mx-auto text-center w-100 rounded-lg pt-5" style = {{background: 'white', color: 'grey'}} as="h2">12:00pm</h3>
-                                    <h6 className = "mx-auto text-center w-100 rounded-lg pt-1" style = {{background: 'white', color: 'pink'}} as="h2">12:00 - 12:30</h6>
+                                <Col className = "w-25" style = {{paddingTop: '1.5rem'}}>
+                                    <h3 className = "mx-auto text-center text-muted w-100 rounded-lg pt-5">12:00pm</h3>
+                                    <h6 className = "mx-auto text-center text-primary w-100 rounded-lg pt-1">12:00 - 12:30</h6>
                                 </Col>
-                                <Col style = {{paddingTop: '2rem'}}>
+                                <Col className = "w-75" style = {{paddingTop: '2rem'}}>
                                     <AgendaCard title = "Progress Update"
                                     description = "Quick check in to see progress of project."
-                                    meetingRoom = "Meeting Room 1"/>
+                                    meetingRoom = "Meeting Room 1"
+                                    idString = "2" />
                                 </Col>
                             </Row>
                             <Row xs={2} md={4} lg={4} className = "mx-auto">
-                                <Col style = {{width: '20%', paddingTop: '1.5rem', }}>
-                                    <h3 className = "mx-auto text-center w-100 rounded-lg pt-5" style = {{background: 'white', color: 'grey'}} as="h2">3:00pm</h3>
-                                    <h6 className = "mx-auto text-center w-100 rounded-lg pt-1" style = {{background: 'white', color: 'pink'}} as="h2">3:00 - 4:00</h6>
+                                <Col className = "w-25" style = {{paddingTop: '1.5rem'}}>
+                                    <h3 className = "mx-auto text-center w-100 text-muted rounded-lg pt-5">3:00pm</h3>
+                                    <h6 className = "mx-auto text-center w-100 text-primary rounded-lg pt-1">3:00 - 4:00</h6>
                                 </Col>
-                                <Col style = {{paddingTop: '2rem'}}>
+                                <Col className = "w-75" style = {{paddingTop: '2rem'}}>
                                     <AgendaCard title = "Social Media Pitch"
                                     description = "Talk about best ways to market product launch."
-                                    meetingRoom = "Zoom"/>
+                                    meetingRoom = "Zoom"
+                                    idString = "3" />
                                 </Col>
                             </Row>
                         </Tab>
