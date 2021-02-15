@@ -7,6 +7,7 @@ function KeyForm() {
     const [keyName, setKeyName] = useState("");
     const [validated, setValidated] = useState(false);
 
+
     const handleSubmit = (event) => {
       const form = event.currentTarget;
       console.log(colorCode);
@@ -18,7 +19,6 @@ function KeyForm() {
         event.preventDefault();
         event.stopPropagation();
       }
-  
       setValidated(true);
     };
 
@@ -39,7 +39,7 @@ function KeyForm() {
         <Form className = "font" noValidate validated={validated} onSubmit={handleSubmit}>
              <Form.Group className = "pt-4">
                 <Form.Label>Key Title</Form.Label>
-                <Form.Control type="title" placeholder="Give your key a name" required/>
+                <Form.Control type="title" placeholder="Give your key a name" onChange={setKeyName} required/>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Choose a color</Form.Label>

@@ -44,7 +44,6 @@ function ProfileNav({userFirstName}) {
                                     <Dropdown.Divider />
                                     <Dropdown.Item id="profile-nav-item" style = {{color: 'gray', fontSize: '1rem'}} href = "/">Logout</Dropdown.Item>
                                 </DropdownButton>
-
                                 </Col>
                             </Row>
                         </Media.Body>

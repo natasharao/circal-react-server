@@ -1,22 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import {Nav, Navbar, Image, Button, ButtonToolbar} from 'react-bootstrap';
 import { Container, Row, Col, CardGroup, Card} from 'react-bootstrap';
-import {Jumbotron} from 'react-bootstrap';
 import {Contact} from './components/Contact.js';
 import {Home} from './components/Home.js';
 import {About} from './components/About.js';
 import {Pricing} from './components/Pricing.js';
 import {Features} from './components/Features.js';
-import {NavigationBar} from './components/NavigationBar.js';
-import { BrowserRouter, Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Password} from './components/Password.js';
-import {SignIn} from './components/SignIn.js';
-import CalendarPicker from './components/User/CalendarPicker';
+import SignIn from './components/SignIn.js';
 import UserDashboard from './components/User/Home/UserDashboard.js';
 import SignUpNext from './components/SignUpFlow/SignUpNext';
 import TeamDashboard from './components/User/Team/TeamDashboard.js'
-import AgendaDashboard from './components/User/AgendaDashboard';
+import AgendaDashboard from './components/User/Agenda/AgendaDashboard';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import CreateMeetingForm from './components/User/CreateMeetingForm';
 import CalendarDashboard from './components/User/Calendar/CalendarDashboard';

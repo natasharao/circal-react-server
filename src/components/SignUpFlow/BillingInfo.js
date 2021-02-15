@@ -45,7 +45,7 @@ function BillingInfo({values, inputChange, nextStep, prevStep}) {
                                         className = "w-100 pr-1 pl-1"
                                         style = {{minWidth: '40%'}}
                                         type="radio"
-                                        variant="transparent"
+                                        variant="outline-light"
                                         name="radio"
                                         value={radio.name}
                                         checked={planChoice === radios.name}

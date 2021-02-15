@@ -4,18 +4,19 @@ import SignUp from './SignUp';
 import PersonalInfo from './PersonalInfo';
 import BillingInfo from './BillingInfo';
 import ChooseFlow from './ChooseFlow';
+import TeamInfo from './TeamInfo';
 
 export class SignUpNext extends React.Component {
     state = {
         step: 1,
         firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
         pricePlan: '',
         company: '',
         timeZone: '',
-        lastName: '',
-        email: '',
         company: '',
-        password: '',
         role: ''
     };
 
@@ -49,7 +50,7 @@ export class SignUpNext extends React.Component {
                 console.log("plan");
                 console.log(plan);
                     return(
-                        <ChooseFlow nextStep = {this.nextStep} prevStep = {this.prevStep}  inputChange = {this.inputChange} values = {values}/>
+                        <TeamInfo nextStep = {this.nextStep} prevStep = {this.prevStep}  inputChange = {this.inputChange} values = {values}/>
                     );
             case 3:
                 if (company && !accessCode && step === 3) {

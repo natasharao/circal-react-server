@@ -19,7 +19,12 @@ function CompanyMemberCards({getAll}) {
         {image: './assests/SachiProfile.png', name: 'Sachi Tolani', role: 'CMO'},
         {image: './assests/AnishaProfile.png', name: 'Anisha Bhat', role: 'Product Manager'},
         {image: './assests/AarushiProfile.png', name: 'Aarushi Upadhayaya', role: 'CTO'},
-        {image: './assests/MirandaProfile.png', name: 'Miranda Chai', role: 'CXO'},
+        {image: './assests/MirandaProfile.png', name: 'Miranda Chai', role: 'CDO'},
+        {image: './assests/NatashaProfile.png', name: 'Natasha Rao', role: 'CEO'},
+        {image: './assests/NatashaProfile.png', name: 'Natasha Rao', role: 'CEO'},
+        {image: './assests/NatashaProfile.png', name: 'Natasha Rao', role: 'CEO'},
+        {image: './assests/NatashaProfile.png', name: 'Natasha Rao', role: 'CEO'},
+        {image: './assests/NatashaProfile.png', name: 'Natasha Rao', role: 'CEO'},
     ];
 
     function getCardInfo() {

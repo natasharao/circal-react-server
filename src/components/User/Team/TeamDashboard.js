@@ -16,11 +16,11 @@ export default class TeamDashboard extends React.Component {
                         <Row lg={12} className = "mt-4">
                                 <Col lg={4} className = "pl-5">
                                     <Row>
-                                        <Col lg={6} md ={6} sm={6} classNaame = "align-self-center">
-                                            <h2 className="text-truncate">All Members</h2>
+                                        <Col lg={7} md ={6} sm={6} classNaame = "align-self-center">
+                                            <h2 className="text-truncate text-gray pl-4 pt-3">All Members</h2>
                                         </Col>
-                                        <Col lg={6} md ={6} sm={6} className ="pl-0 ml-0  align-self-center">
-                                            <p className = "text-muted float-left">20 total</p>
+                                        <Col lg={5} md ={6} sm={6} className ="pl-0 ml-0  align-self-center">
+                                            <p className = "text-muted float-left mt-4">20 total</p>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -30,12 +30,14 @@ export default class TeamDashboard extends React.Component {
                                         <Row>
                                             <Col lg={6} md={6} sm={6} className = "pr-0 mr-0">
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="first"><Button className = "btn-rounded w-25 float-right">All</Button></Nav.Link>
+                                                    <Nav.Link eventKey="first" id="all-members">
+                                                        <Button className = "btn-rounded w-25 float-right">All</Button>
+                                                    </Nav.Link>
                                                 </Nav.Item>
                                             </Col>
                                             <Col lg={6} md={6} sm={6} className = "pl-0 ml-0 my-auto">
                                                 <Nav.Item>
-                                                    <Nav.Link eventKey="second" className = "float-left">My Team</Nav.Link>
+                                                    <Nav.Link eventKey="second" className = "float-left" id = "team-only">My Team</Nav.Link>
                                                 </Nav.Item>
                                             </Col>
                                         </Row>
@@ -48,7 +50,7 @@ export default class TeamDashboard extends React.Component {
                                 <CompanyMemberCards getAll={true}/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
-                                <Button className = "btn-rounded float-left mb-5">Add Team Member +</Button>
+                                <Button className = "btn-rounded float-left mb-5 ml-4 font-weight-bold">Add Member +</Button>
                                 <CompanyMemberCards getAll={false}/>
                             </Tab.Pane>
                             </Tab.Content>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="306" height="306" viewBox="0 0 306 306">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 200 200">
+      <image width="200" height="200" xlink:href="Rectangle%20-2-image.jpg"/>
+    </pattern>
+  </defs>
+  <rect id="Rectangle_2" data-name="Rectangle 2" width="306" height="306" fill="url(#pattern)"/>
+</svg>

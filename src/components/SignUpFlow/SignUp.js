@@ -19,12 +19,6 @@ export class SignUp extends React.Component {
         } catch (e) {
             console.log(`creating company failed: ${e}`);
         }
-    };
-
-    handleConfirmPass({password, confirmPassword}) {
-        if (password !== confirmPassword) {
-            // alert('passwords don\'t match!');
-        }
     }
 
     render() {
@@ -36,13 +30,13 @@ export class SignUp extends React.Component {
                 <Container className = "sign-up-bg animate__animated animate__slideInRight" fluid>
                     <Table className = "animate__animated animate__slideInLeft">
                         <Row>
-                            <h1 className = "title header mx-auto welcome-header">Welcome Back!</h1>
+                            <h1 className = "title header mx-auto welcome-header">Hello, Friend!</h1>
                         </Row>
                         <Row>
                             <p className = "mx-auto white">Already have an account?</p>
                         </Row>
                         <Row>
-                            <Button href="/signup" variant = "outline-light" size = "lg" className = "btn-rounded mx-auto btn-sign-in">sign in</Button>
+                            <Button href="/signin" variant = "outline-light" size = "lg" className = "btn-rounded mx-auto btn-sign-in">sign in</Button>
                         </Row>
                     </Table>
                 </Container>
@@ -53,41 +47,42 @@ export class SignUp extends React.Component {
                                 <h1 className = "mx-auto sign-up-header">Create Account</h1>
                             </Row>
                             <Row className = "w-50 mx-auto">
-                                <Button className = "mx-auto" variant = "light">Sign up with Google</Button>
                             </Row>
                             <Row style = {{color: 'gray'}} className = "pt-1 pb-3">
                             <p className = "mx-auto">or use your email for registration</p>
                             </Row>
                             <Col>
                                 <Form className = "mx-auto w-75">
-                                    {/* <Form.Row>
-                                        <Col>
-                                            <Form.Control type = "first name" placeholder = "First Name"  onChange = {inputChange('firstName')} value = {values.firstName}/>
-                                        </Col>
-                                        <Col>
-                                            <Form.Control type = "last name"  placeholder = "Last Name" onChange = {inputChange('lastName')} value = {values.lastName}/>
-                                        </Col>
-                                    </Form.Row> */}
                                     <Form.Row className = "pt-3">
                                         <Col>
-                                            <Form.Control type = "workEmail" className = "input-borders" placeholder = "Work Email" onChange = {inputChange('email')} value = {values.email}/>
+                                            <Form.Control  type = "name" placeholder="First Name" 
+                                            onChange = {inputChange('firstName')} value = {values.firstName}/>
+                                        </Col>
+                                        <Col>
+                                            <Form.Control type = "name" placeholder = "Last Name"
+                                            onChange = {inputChange('lastName')} value = {values.lastName}/>
                                         </Col>
                                     </Form.Row>
                                     <Form.Row className = "pt-3">
                                         <Col>
-                                            <Form.Control type="password" placeholder="Password" onChange={inputChange('password')} value = {values.password}/>
+                                            <Form.Control type = "email" className = "input-borders" 
+                                            placeholder = "Work Email" onChange = {inputChange('email')} value = {values.email}/>
                                         </Col>
                                     </Form.Row>
                                     <Form.Row className = "pt-3">
                                         <Col>
-                                            <Form.Control type="password" placeholder="Confirm Password" />
+                                            <Form.Control type="password" placeholder="Password" 
+                                            onChange={inputChange('password')} value = {values.password}/>
                                         </Col>
                                     </Form.Row>
                                     <Form.Row className = "pt-4 mx-auto">
-                                        <Form.Check type="checkbox" label="Agree to Terms of Service" style = {{color: 'gray', fontSize: '0.9rem'}}/>
+                                        <Form.Check type="checkbox" label="Agree to Terms of Service" 
+                                        style = {{color: 'gray', fontSize: '0.9rem'}}/>
                                     </Form.Row>
                                     <Form.Row className = "pt-5 pb-4">
-                                        <Button variant="primary" style = {{border: 'hidden', width: '40%', fontWeight: 'bold', fontSize: '1rem'}} size = "lg" className = "btn-rounded mx-auto" onClick = {this.continue}>sign up</Button>
+                                        <Button variant="primary" 
+                                        style = {{border: 'hidden', width: '40%', fontWeight: 'bold', fontSize: '1rem'}}
+                                        size = "lg" className = "btn-rounded mx-auto" onClick = {this.continue}>sign up</Button>
                                     </Form.Row>
                                 </Form>
                             </Col>

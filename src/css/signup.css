@@ -65,3 +65,27 @@
     font-weight: bold;
     color: DimGrey;
 }
+
+.tag-item {
+    background-color: #B0B4C3;
+    color: white; 
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 30px;
+    height: 30px;
+    padding: 0 4px 0 1rem;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0.3rem 0.3rem 0;
+  }
+  
+  .tag-item > .button {
+    background-color: white;
+    color: #B0B4C3;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    margin-left: 10px;
+    font-weight: bold;
+  }

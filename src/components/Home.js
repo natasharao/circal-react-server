@@ -1,18 +1,12 @@
 import React from 'react';
 import {Nav, Navbar, Image, Button, ButtonToolbar, Table, ResponsiveEmbed} from 'react-bootstrap';
 import { Container, Row, Col, CardGroup, Card} from 'react-bootstrap';
-import {Jumbotron} from 'react-bootstrap';
 import {FeaturesSection} from './FeaturesSection.js';
-import {SignUp} from './SignUpFlow/SignUp.js';
-import {Router, Route, Link} from 'react-router-dom';
-import SignIn from './SignIn.js';
 import '.././App.css';
 import {GetStartedCard} from './GetStartedCard.js';
 import {ProblemStats} from './ProblemStats.js';
 import {NavigationBar} from './NavigationBar.js';
 import {PinkFooter} from './PinkFooter';
-
-
 
 
 const OtherStyle = {
@@ -59,12 +53,14 @@ export class Home extends React.Component {
 
                   <Row>
                     <Col lg = {5} md = {5} sm = {6} xs={6} className = "mx-auto">
-                      <p className = "paragraph-header text-center animate__animated animate__fadeInDown">Circal is a smart scheduling software for the workplace to make lives easier and teams more efficient.</p> 
+                      <p className = "paragraph-header text-center animate__animated animate__fadeInDown">Circal is a smart scheduling software for 
+                      the workplace to make lives easier and teams more efficient.</p> 
                     </Col>
                   </Row>
 
                   <Row className = "center">
-                      <Button variant="outline-light" style = {{width: '20%'}} className = "btn-rounded animate__animated animate__fadeIn" href = "/signin">sign in</Button>
+                      <Button variant="outline-light" style = {{width: '20%'}} 
+                      className = "btn-rounded animate__animated animate__fadeIn" href = "/signin">sign in</Button>
                   </Row>
                 </Container>
               </Row>
@@ -86,7 +82,6 @@ export class Home extends React.Component {
                 <PinkFooter/>
               </Container>
             </Container>
-            
             
           </Container>
         </Container>
