@@ -24,7 +24,7 @@ export class NavigationBar extends React.Component {
                     alt=""
                     src="/assests/LogoImage.png"
                     className = "ml-5"
-                    width = "55"
+                    width = "55"c
                     height = "40"
                     />
                     <h1>circal</h1>

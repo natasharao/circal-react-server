@@ -42,11 +42,11 @@ export class SignUpNext extends React.Component {
         const values = {firstName, lastName, accessCode, plan, company, timeZone, role, email, password}
 
         switch(step) {
-            case 2:
+            case 1:
                 return(
                     <SignUp nextStep = {this.nextStep} inputChange = {this.inputChange} values = {values}/>
                 );
-            case 1:
+            case 2:
                 console.log("plan");
                 console.log(plan);
                     return(
