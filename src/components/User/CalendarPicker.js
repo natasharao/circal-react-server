@@ -17,7 +17,8 @@ const CalendarPicker = (props) => {
         colorPrimary='#9c88ff'
         inputPlaceholder='Select a day'
       />
-      <p>Selected day: {props.value ? props.value.month + '/' + props.value.day + '/' + props.value.year : 'No Date Selected'}
+      <p className='mt-2'>
+        Selected day: {props.value ? props.value.month + '/' + props.value.day + '/' + props.value.year : 'No Date Selected'}
       </p>
     </Container>
   );

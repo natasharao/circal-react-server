@@ -1,31 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap';
-import CalendarPicker from './CalendarPicker.js';
+import { Container, Card, Form, Row, Col, Button, FormControl } from 'react-bootstrap';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ErrorMessage } from '@hookform/error-message';
+
+import { createMeetingSchema } from '../../utils/FormSchemas';
+import CalendarPicker from './CalendarPicker.js';
 
 const CreateMeetingForm = () => {
   const people = [
     { team: 'circal-dev', name: 'Natasha Rao' },
     { team: 'circal-dev', name: 'Miranda Chai' },
     { team: 'circal-dev', name: 'Aarushi Upadhayaya' },
+    { team: 'circal-dev', name: 'Ibrahim Saeed' },
     { team: 'circal-biz', name: 'Sachi Tolani' },
     { team: 'circal-biz', name: 'Anisha Bhat' }
   ];
 
+  const todayDate = new Date();
   const { register, handleSubmit, control, errors } = useForm({
-    mode: 'onSubmit',
+    mode: 'onBlur',
     reValidateMode: 'onChange',
+    resolver: yupResolver(createMeetingSchema),
     defaultValues: {
       meetingTitle: '',
-      meetingDate: '',
+      meetingDate: { day: todayDate.getDate(), month: todayDate.getMonth(), year: todayDate.getFullYear() },
       meetingHours: '',
       meetingMins: '',
-      meetingAttendes: [],
+      meetingAttendees: [],
       meetingNotes: ''
     }
   });
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    console.log('Submit: ');
+    console.log(data);
+  };
+  const onError = formErrors => {
+    console.log('Errors: ');
+    console.log(formErrors);
+  };
 
   function filterLastName (person, value) {
     const lastname = person.lastName.toLowerCase();
@@ -49,9 +63,10 @@ const CreateMeetingForm = () => {
       </Row>
       <Row className='w-100 h-75'>
         <Form
+          noValidate
           variant='secondary'
           className='font w-100 h-100 mt-5'
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit, onError)}
         >
           <Form.Row lg={12}>
             <Col lg={4} className='w-25 pl-5'>
@@ -78,50 +93,95 @@ const CreateMeetingForm = () => {
             </Col>
             <Col lg={8} className='w-75 pl-0 ml-0 pl-sm-5 pt-sm-5'>
               <Form.Group>
-                <Form.Label>Meeting Title</Form.Label>
-                <Form.Control name='meetingTitle' ref={register} type='text' className='w-50' />
+                <Form.Label>Meeting Title*</Form.Label>
+                <Form.Control
+                  name='meetingTitle'
+                  ref={register}
+                  type='text'
+                  className='w-50'
+                  isInvalid={errors && errors.meetingTitle}
+                />
+                <Form.Control.Feedback type='invalid'>
+                  <ErrorMessage errors={errors} name='meetingTitle' />
+                </Form.Control.Feedback>
+
               </Form.Group>
               <Form.Group>
-                <Form.Label>Duration of Meeting</Form.Label>
+                <Form.Label>Duration of Meeting*</Form.Label>
                 <Form.Group>
                   <Form.Row>
                     <Col lg={3}>
                       <Form.Row>
-                        <Form.Control name='meetingHours' ref={register} className='w-50 mr-2' pattern='[0-9]*' />
+                        <Form.Control
+                          name='meetingHours'
+                          ref={register}
+                          className='w-50 mr-2'
+                          isInvalid={errors && errors.meetingHours}
+                        />
                         <p className='my-auto'>Hours</p>
+                        <Form.Control.Feedback type='invalid'>
+                          <ErrorMessage errors={errors} name='meetingHours' />
+                        </Form.Control.Feedback>
                       </Form.Row>
                     </Col>
                     <Col lg={3}>
                       <Form.Row>
-                        <Form.Control name='meetingMinutes' ref={register} className='w-50 mr-2' pattern='[0-9]*' />
+
+                        <Form.Control
+                          name='meetingMinutes'
+                          ref={register}
+                          className='w-50 mr-2'
+                          isInvalid={errors && errors.meetingMinutes}
+                        />
                         <p className='my-auto'>Minutes</p>
+                        <Form.Control.Feedback type='invalid'>
+                          <ErrorMessage errors={errors} name='meetingMinutes' />
+                        </Form.Control.Feedback>
+
                       </Form.Row>
                     </Col>
                   </Form.Row>
                 </Form.Group>
               </Form.Group>
               <Form.Group>
-                <Form.Label>Choose Attendees</Form.Label>
+                <Form.Label>Choose Attendees*</Form.Label>
+
                 <Controller
-                  name='meetingAttendes'
+                  name='meetingAttendees'
                   control={control}
                   rules={{ required: true }}
                   render={({ value, onChange, onBlur }) => (
                     <Multiselect
                       className='w-50'
-                      data={people}
+                      value={value}
+                      onChange={onChange}
+                      onBlur={onBlur}
                       textField='name'
                       groupBy='team'
-                      onChange={onChange}
-                      value={value}
+                      data={people}
                     />
                   )}
                 />
+                <FormControl hidden name='meetingAttendees' isInvalid={errors && errors.meetingAttendees} />
+                <Form.Control.Feedback type='invalid'>
+                  <ErrorMessage errors={errors} name='meetingAttendees' />
+                </Form.Control.Feedback>
 
               </Form.Group>
               <Form.Group>
-                <Form.Label>Agenda Notes</Form.Label>
-                <Form.Control name='agendaNotes' ref={register} as='textarea' rows='3' className='w-50' />
+                <Form.Label>Meeting Notes</Form.Label>
+
+                <Form.Control
+                  name='meetingNotes'
+                  ref={register}
+                  as='textarea'
+                  rows='3'
+                  className='w-50'
+                  isInvalid={errors && errors.meetingNotes}
+                />
+                <Form.Control.Feedback type='invalid'>
+                  <ErrorMessage errors={errors} name='meetingNotes' />
+                </Form.Control.Feedback>
               </Form.Group>
               <Form.Row className='w-25 pt-4'>
                 <Button type='submit' variant='secondary' className='btn-rounded w-100'>
